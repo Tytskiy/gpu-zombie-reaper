@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpu-zombie-reaper"
+version = "0.1.0"
+description = "A simple tool to kill GPU processes based on various criteria"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "WTFPL"}
+authors = [
+    {name = "tytskiy"}
+]
+keywords = ["gpu", "nvidia", "process-management", "zombie-processes"]
+
+dependencies = [
+    "psutil>=5.9.0",
+    "pynvml>=11.5.0",
+]
+
+[project.scripts]
+gpu-zombie-reaper = "gpu_zombie_reaper:main"
+
+[tool.setuptools]
+py-modules = ["gpu_zombie_reaper"]
+
