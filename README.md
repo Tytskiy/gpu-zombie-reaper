@@ -1,4 +1,4 @@
-****# GPU Zombie Reaper
+# GPU Zombie Reaper
 
 A simple tool to kill GPU processes based on various criteria.
 
@@ -30,8 +30,6 @@ cd gpu-zombie-reaper
 pip install -e .
 ```
 
-```
-
 ### Option 2: Clone and install dependencies
 
 ```bash
@@ -42,30 +40,21 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Running as a Python module (recommended)
+### 💪 Gigachad Mode (Direct GPU Kill)
 
-**With sudo (direct kill):**
+For absolute legends who run random GitHub scripts with sudo because fear is for CPUs. This mode doesn’t ask questions—it just yeets offending processes straight into the void.
+
 ```bash
 sudo python3 -m gpu_zombie_reaper --zero-util
 ```
 
-**Without sudo (get PIDs to kill manually):**
-```bash
-    python -m gpu_zombie_reaper --zero-util --fuser-output "$(sudo fuser -v /dev/nvidia* 2>/dev/null)" --output-pids \
-    | xargs sudo kill -9
-```
+### 🛡️ Paranoid but Correct Mode
 
-### Running the script directly
+You don’t trust scripts. Good. You shouldn’t. Safe Mode hands you the PIDs while keeping sudo completely out of the loop—because security isn’t paranoia when the internet is involved.
 
-**With sudo (direct kill):**
+**As a Python module (recommended):**
 ```bash
-sudo python3 gpu_zombie_reaper.py --zero-util
-```
-
-**Without sudo (get PIDs to kill manually):**
-```bash
-sudo fuser -v /dev/nvidia* 2>/dev/null \
-    | python3 gpu_zombie_reaper.py --zero-util --fuser-output /dev/stdin --output-pids \
+python -m gpu_zombie_reaper --zero-util --fuser-output "$(sudo fuser -v /dev/nvidia* 2>/dev/null)" --output-pids \
     | xargs sudo kill -9
 ```
 
@@ -99,5 +88,5 @@ sudo python3 gpu_zombie_reaper.py --zero-util --dry-run
 
 ## License  
 
-This projects uses the [WTFPL license](http://www.wtfpl.net/)
+This project uses the [WTFPL license](http://www.wtfpl.net/)
 (Do **W**hat **T**he **F**uck You Want To **P**ublic **L**icense)

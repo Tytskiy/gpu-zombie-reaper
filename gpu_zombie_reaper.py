@@ -243,7 +243,6 @@ def get_processes_from_dev_nvidia(fuser_output: Optional[str] = None) -> dict[in
     try:
         pids = [int(x) for x in output.strip().split()]
     except ValueError as e:
-        print(output.split())
         print(f"Warning: Failed to parse PIDs from fuser output: {e}")
         return {}
 
