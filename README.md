@@ -1,6 +1,6 @@
-# 🔥 GPU Zombie Reaper 💀⚔️
+# GPU Zombie Reaper 💀⚔️
 
-A merciless terminator of wasted VRAM.
+A merciless terminator of wasted GPU VRAM.
 
 ## 🧟 The Problem
 
@@ -27,15 +27,19 @@ This tool puts them down. Permanently. ☠️
 
 ## 📦 Installation
 ### 🚀 Option 1: Install from source
+
+```bash
 git clone https://github.com/tytskiy/gpu-zombie-reaper.git
 cd gpu-zombie-reaper
 pip install -e .
+```
 
 ### 🐍 Option 2: Clone + install requirements
+```bash
 git clone https://github.com/tytskiy/gpu-zombie-reaper.git
 cd gpu-zombie-reaper
 pip install -r requirements.txt
-
+```
 
 Copy, paste, and smite freely.
 
@@ -51,22 +55,24 @@ sudo python3 -m gpu_zombie_reaper --zero-util
 You trust nothing. Good.
 Run safely and manually feed the PIDs to sudo:
 
+```bash
 python -m gpu_zombie_reaper --zero-util --fuser-output "$(sudo fuser -v /dev/nvidia* 2>/dev/null)" --output-pids \
     | xargs sudo kill -9
+```
 
 ## 🧰 Options
 
---dry-run — Preview targets ☑️
+`--dry-run` — Preview targets ☑️
 
---zero-util — Kill 0% util hogs
+`--zero-util` — Kill 0% util hogs
 
---zombies — Kill zombie processes
+`--zombies` — Kill zombie processes
 
---too-old HOURS — Reap ancient processes
+`--too-old HOURS` — Reap ancient processes
 
---no-process — Kill processes lacking system info
+`--no-process` — Kill processes lacking system info
 
---output-pids — Output only PIDs (for no-sudo mode)
+`--output-pids` — Output only PIDs (for no-sudo mode)
 
 ## 📝 Examples
 
