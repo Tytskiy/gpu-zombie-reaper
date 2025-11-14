@@ -1,6 +1,6 @@
 # GPU Zombie Reaper 💀⚔️
 
-A merciless terminator of wasted GPU VRAM.
+The grim reaper for useless GPU gobblers.
 
 ## 🧟 The Problem
 
@@ -41,14 +41,17 @@ cd gpu-zombie-reaper
 pip install -r requirements.txt
 ```
 
-Copy, paste, and smite freely.
+Copy, paste, and use however you want.
 
 ## ⚔️ Usage
 ### 💪 Gigachad Mode (Direct GPU Kill)
 
-For absolute legends who run random GitHub scripts with sudo because fear is for CPUs. This mode doesn’t ask questions—it just yeets offending processes straight into the void.
+For absolute legends who run random scripts with sudo because safety is merely a suggestion. 
+This mode doesn’t ask questions – it just kills offending processes straight into the void.
 
+```bash
 sudo python3 -m gpu_zombie_reaper --zero-util
+```
 
 ### 🛡️ Paranoid but Correct Mode
 
@@ -57,12 +60,12 @@ Run safely and manually feed the PIDs to sudo:
 
 ```bash
 python -m gpu_zombie_reaper --zero-util --fuser-output "$(sudo fuser -v /dev/nvidia* 2>/dev/null)" --output-pids \
-    | xargs sudo kill -9
+  | xargs sudo kill -9
 ```
 
 ## 🧰 Options
 
-`--dry-run` — Preview targets ☑️
+`--dry-run` — Preview targets
 
 `--zero-util` — Kill 0% util hogs
 
@@ -129,4 +132,5 @@ sudo python3 gpu_zombie_reaper.py --zero-util
 ## 📜 License
 
 This project is licensed under the WTFPL.
+
 Do. Whatever. You want. 🤘
