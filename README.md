@@ -1,73 +1,107 @@
-# GPU Zombie Reaper
+# 🔥 GPU Zombie Reaper 💀⚔️
 
-A simple tool to kill GPU processes based on various criteria.
+A merciless terminator of wasted VRAM.
 
-## The Problem
+## 🧟 The Problem
 
-Oh cool, all your VRAM is taken! Except nothing is actually running. It's just dead processes squatting on gigabytes of memory doing absolutely NOTHING. 
+Your GPU memory is full. But… nothing’s actually running.
+Just undead processes shambling around, gnawing on your precious VRAM.
 
 <img src="zombies_around.png" alt="GPU Zombies Being Annoying" width="600">
 
-*0% GPU utilization. 100% memory hogging. Maximum audacity.*
+0% utilization. 100% audacity.
 
-This tool kills them. You're welcome. 💀
+This tool puts them down. Permanently. ☠️
 
-## Features
+## ✨ Features
 
-- Kill processes with zero GPU utilization
-- Kill zombie processes
-- Kill processes older than specified hours
-- Dry-run mode to preview actions
-- Works with or without sudo
+🔪 Kill processes with zero GPU utilization
 
-## Installation
+🧟‍♂️ Terminate zombie processes
 
-### Option 1: Install from source (recommended)
+⏳ Reap processes older than X hours
 
-```bash
+🛡️ Dry-run mode for safety
+
+🔓 Works with or without sudo
+
+## 📦 Installation
+### 🚀 Option 1: Install from source
 git clone https://github.com/tytskiy/gpu-zombie-reaper.git
 cd gpu-zombie-reaper
 pip install -e .
-```
 
-### Option 2: Clone and install dependencies
-
-```bash
+### 🐍 Option 2: Clone + install requirements
 git clone https://github.com/tytskiy/gpu-zombie-reaper.git
 cd gpu-zombie-reaper
 pip install -r requirements.txt
-```
 
-## Usage
 
+Copy, paste, and smite freely.
+
+## ⚔️ Usage
 ### 💪 Gigachad Mode (Direct GPU Kill)
 
 For absolute legends who run random GitHub scripts with sudo because fear is for CPUs. This mode doesn’t ask questions—it just yeets offending processes straight into the void.
 
-```bash
 sudo python3 -m gpu_zombie_reaper --zero-util
-```
 
 ### 🛡️ Paranoid but Correct Mode
 
-You don’t trust scripts. Good. You shouldn’t. Safe Mode hands you the PIDs while keeping sudo completely out of the loop—because security isn’t paranoia when the internet is involved.
+You trust nothing. Good.
+Run safely and manually feed the PIDs to sudo:
 
-**As a Python module (recommended):**
-```bash
 python -m gpu_zombie_reaper --zero-util --fuser-output "$(sudo fuser -v /dev/nvidia* 2>/dev/null)" --output-pids \
     | xargs sudo kill -9
+
+## 🧰 Options
+
+--dry-run — Preview targets ☑️
+
+--zero-util — Kill 0% util hogs
+
+--zombies — Kill zombie processes
+
+--too-old HOURS — Reap ancient processes
+
+--no-process — Kill processes lacking system info
+
+--output-pids — Output only PIDs (for no-sudo mode)
+
+## 📝 Examples
+
+### Preview
+
+```bash
+python -m gpu_zombie_reaper --zero-util --too-old 12 --dry-run
+🔍 Gathering GPU process information...
+✓ Found 6 GPU processes (after whitelist filtering)
+
+
+════════════════════════════════════════════════════════════════════════════════════════
+⚠️  ZERO GPU UTILIZATION
+════════════════════════════════════════════════════════════════════════════════════════
+  👁️  [DRY RUN] Would kill: PID 124264 anonym [python] GPU 7 |     414MB |   0% ⏱   27.5m 
+    └─ /.../bin/python -m ipykernel_launcher --f=/run/user/392804/jupyter/ru...
+
+👁️ Would kill 1 process(es)
+
+
+════════════════════════════════════════════════════════════════════════════════════════
+⏰  PROCESSES OLDER THAN 12 HOURS
+════════════════════════════════════════════════════════════════════════════════════════
+
+No processes matched this criteria
+
+
+════════════════════════════════════════════════════════════════════════════════════════
+👁️   TOTAL: Would kill 1 process(es)
+   Run without --dry-run to actually kill the processes.
+════════════════════════════════════════════════════════════════════════════════════════
+
 ```
 
-## Options
-
-- `--dry-run` - Preview what would be killed
-- `--zero-util` - Kill processes with 0% GPU utilization
-- `--zombies` - Kill zombie processes
-- `--too-old HOURS` - Kill processes running longer than specified hours
-- `--no-process` - Kill processes without system info
-- `--output-pids` - Output PIDs only (for no-sudo mode)
-
-## Examples
+### Others
 
 ```bash
 # Preview what would be killed
@@ -83,10 +117,10 @@ sudo python3 -m gpu_zombie_reaper --zombies
 sudo python3 -m gpu_zombie_reaper --zero-util --zombies --too-old 12
 
 # Or run the script directly:
-sudo python3 gpu_zombie_reaper.py --zero-util --dry-run
+sudo python3 gpu_zombie_reaper.py --zero-util
 ```
 
-## License  
+## 📜 License
 
-This project uses the [WTFPL license](http://www.wtfpl.net/)
-(Do **W**hat **T**he **F**uck You Want To **P**ublic **L**icense)
+This project is licensed under the WTFPL.
+Do. Whatever. You want. 🤘
